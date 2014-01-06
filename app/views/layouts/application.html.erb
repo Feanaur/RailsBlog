@@ -7,12 +7,25 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <nav class="navbar-default navbar-static-top" role="navigation">
+      <ul class="nav nav-tabs">
+        <li><a href="/">Home</a></li>  
+        <%- if user_signed_in? %> 
+          <li><a href="/persons/profile">Profile</a></li>   
+          <li><%= link_to 'Posts', posts_path %></li>     
+          <li><a href="/posts/new">New Post</a></li>
+          <li class="pull-right"><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
+        <%- else %>
+          <li class="pull-right"><%= link_to 'Register', new_user_registration_path %></li>
+          <li class="pull-right"><%= link_to 'Sign in', new_user_session_path %></li>
+        <%- end %>              
+      </ul>
+    </nav>
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
-<div id="secondaryContent">
-    <%= render 'common/session' %>
-  </div>
-<%= yield %>
-
+    <div class="container"> 
+      <p>Hello <%= current_user.email %><br /></p>
+      <%= yield %>
+    </div>
 </body>
 </html>
