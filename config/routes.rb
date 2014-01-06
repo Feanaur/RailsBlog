@@ -1,5 +1,6 @@
 RailsBlog::Application.routes.draw do
 
+  get "persons/profile"
   devise_for :users
 
   resources :posts do
@@ -8,6 +9,8 @@ RailsBlog::Application.routes.draw do
 
   root to: "welcome#index"
 
+
+  get 'persons/profile', as: 'user_root'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
