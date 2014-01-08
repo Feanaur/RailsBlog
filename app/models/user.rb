@@ -9,8 +9,7 @@ class User < ActiveRecord::Base
   #validates :name, presence: true, length: { minimum: 2 }
   validates :password, length: { minimum: 8 }, confirmation: true
   validates :password_confirmation, presence: true
-  validates :email,
+  validates :email, email_format: { message: "Doesn't look like an email address" },
     presence: true,
-    uniqueness: true,
-    format: { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create }
+    uniqueness: true
 end

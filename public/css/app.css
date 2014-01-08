@@ -1,0 +1,23 @@
+.btn-delete{
+  float: right;
+  margin-top: -45px;
+}
+.r-control-group{
+  padding:5px;
+}
+.center{
+  padding-left:2%;
+}
+.navbar-inner{
+  background: white;
+}
+.list-group-item{
+  width:98%;
+}
+.pad-top{
+  padding-top:2%;
+}
+.delete-comment-button{
+  margin-top: -36px;
+  margin-right:20%;
+}
