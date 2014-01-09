@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20140102030500) do
     t.integer  "comment_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name",                   default: "", null: false
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -50,6 +51,7 @@ ActiveRecord::Schema.define(version: 20140102030500) do
 
   add_index "users", ["comment_id"], name: "index_users_on_comment_id"
   add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["name"], name: "index_users_on_name"
   add_index "users", ["post_id"], name: "index_users_on_post_id"
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
