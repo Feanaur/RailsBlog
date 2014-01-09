@@ -1,19 +1,11 @@
 <h1>Listing posts</h1>
-<%= link_to 'New post', new_post_path %>
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Text</th>
-  </tr>
- 
-  <% @posts.each do |post| %>
-    <tr>
-      <td><%= post.title %></td>
-      <td><%= post.text %></td>
-      <td><%= link_to 'Show', post %></td>
-      <td><%= link_to 'Edit', edit_post_path(post) %></td>
-      <td><%= link_to 'Destroy', post_path(post),
-                    method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-  <% end %>
-</table>
+<ul>
+<% @posts.each do |post| %>
+  <li>
+    <h2><a href="/posts/<%= post.id %>"><%= post.title %></a></h2>
+    <span><%= post_preview(post) %></span><br/></br>
+    <span><%= pretty_date(post.created_at) %></span>
+  </li>
+
+<% end %>
+</ul>
