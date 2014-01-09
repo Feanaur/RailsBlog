@@ -11,7 +11,7 @@ Bundler.require(:default, Rails.env)
 module RailsBlog
   class Application < Rails::Application
     config.assets.enabled = true
-    config.assets.initialize_on_precompile = false
+    #config.assets.initialize_on_precompile = false
 
     config.action_mailer.default_url_options = { :host => 'localhost:3000' }
     # Settings in config/environments/* take precedence over those specified here.
